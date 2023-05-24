@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var data = JSON.parse(this.responseText);
+            let data = JSON.parse(this.responseText);
+            let datosTabla = "";
             if (data.length > 0) {
-                var datosTabla = "";
+                
                 datosTabla += "<table class=\"table\"><thead> <tr><th scope=\"col\">ID</th>  <th scope=\"col\">Usuario</th>  <th scope=\"col\">Nivel</th> <th></th> <th></th> </tr> </thead><tbody>";
                 editarArray = [];
                 for (let i = 0; i < data.length; i++) {
@@ -27,20 +28,26 @@ document.addEventListener('DOMContentLoaded', function() {
             // Obtener los datos para el modal editar
             for(let i = 0 ; i < editarArray.length ; i++){
                 document.getElementById("btn_editar"+ i).addEventListener("click" , function() {
-                    editarDatos(i);
+                    editarDatos(data,  i);
                 }, false);
-            }
-
-
-            function editarDatos(id){
-                var txt_id = document.getElementById("editar_id");
-                var txt_usuario = document.getElementById("editar_usuario");
-                txt_id.value = data[id].id;
-                txt_usuario.value = data[id].nombre;
             }
         }
     };
 
     xhttp.open("GET", "../php/clientes.php");
     xhttp.send();
+
+    function editarDatos(data, id){
+        let txt_id = document.getElementById("editar_id");
+        let txt_usuario = document.getElementById("editar_usuario");
+        let optionLevel = document.getElementById("editar_nivel")
+        txt_id.value = data[id].id;
+        txt_usuario.value = data[id].nombre;
+        let nivel =  data[id].nivel;
+        console.log(nivel)
+
+        optionLevel.value = nivel;
+
+    }
+
 });
