@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     //obetner la tabla 
-    ObetnerTabla();
+    obetnerTabla();
+    document.getElementById("modalFormUsuarios").addEventListener("submit", enviarDatos, false);
 
 });
 
 
-function ObetnerTabla() {
-    fetch("../php/usuarios.php")
+function obetnerTabla() {
+    fetch("../php/usuarios/usuarios.php")
         .then(response => response.json())
         .then(data => {
             let tablaHtml = document.getElementById("tabla");
@@ -52,5 +53,21 @@ function datosModalEditar(id, data) {
     modalNombre.value = data[id].nombre;
     modalUsuario.value = data[id].username;
     modalNivel.value = data[id].nivel;
+}
+
+function enviarDatos(e){
+    e.preventDefault();
+
+    let formulario = document.getElementById("modalFormUsuarios");
+    var datos = new FormData(formulario);
+    
+    fetch("../php/usuarios/enviarUsuarios.php" ,{
+        method : "POST",
+        body : datos
+    })
+    .then(response => response.json)
+    .then(data => {
+        console.log(data);
+    });
 }
 
