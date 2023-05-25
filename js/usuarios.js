@@ -10,11 +10,11 @@ function ObetnerTabla() {
         .then(response => response.json())
         .then(data => {
             let tablaHtml = document.getElementById("tabla");
-
             modalId.readOnly = true;
-
             let arrayDataUsuario = [];
             let tabla = "";
+
+            
             tabla += "<table class=\"table\"><thead>  <tr>    <th scope=\"col\">ID</th>    <th scope=\"col\">Nombre</th>    <th scope=\"col\">Usuario</th>    <th scope=\"col\">Nivel</th> <th></th> <th></th> </tr></thead><tbody>";
             for (let i = 0; i < data.length; i++) {
                 tabla += "<tr>";
