@@ -5,8 +5,6 @@ if (isset($_POST['modalId'])) {
     $modalUsuario = $_POST['modalUsuario'];
     $modalNivel = $_POST['modalNivel'];
 
-    // Aquí puedes hacer lo que necesites con los datos recibidos
-    // Por ejemplo, imprimir los valores para verificar que se recibieron correctamente
 
     echo json_encode("modalId: " . $modalId . "<br>");
     echo json_encode("modalNombre: " . $modalNombre . "<br>");
