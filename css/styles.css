@@ -1,40 +1,15 @@
-.container-panel_iframe{
-    display: flex;
-    margin: 10px;
+#loading-overlay {
+    display: none;
+    position: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo borroso con opacidad */
+    z-index: 9999;
     border-radius: 20px;
-    background-color: rgb(255, 255, 255);
 }
 
-.panel{
-    width: 10%;
-    height: 90vh;
-    background-image: linear-gradient(blue, green);
-    border-radius: 10px;
-    color: white;
-
-}
-
-.container-iframe{
-    width: 80%;
-    height: 90vh;
-}
-.container-iframe iframe {
-    width: 100vh;
-    height: 100vh;
-  }
-  
-
-.panel-li{
-    list-style: none;
-    padding: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: larger;
-    cursor: pointer;
-}
-.panel-li:hover{
-    background-color: rgb(101, 185, 62);
-    border-radius: 10px;
-    transition: 0.5s;
-    color: black;
-    font-size: x-large;
+#spinner{
+    display: none;
 }

@@ -57,17 +57,52 @@ function datosModalEditar(id, data) {
 
 function enviarDatos(e){
     e.preventDefault();
-
     let formulario = document.getElementById("modalFormUsuarios");
     var datos = new FormData(formulario);
+    
     
     fetch("../php/usuarios/enviarUsuarios.php" ,{
         method : "POST",
         body : datos
     })
-    .then(response => response.json)
+    .then(response => response.json())
     .then(data => {
-        console.log(data);
-    });
+        let alert = document.getElementById("alert");
+        if (data != "Exito") {
+            alert.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Error!</strong> Al Editar el Usuario
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `
+        }else{
+            alert.innerHTML = `
+            <div class="alert alert-success  alert-dismissible fade show" role="alert">
+              <strong>Exito!</strong> ${data} Al registrar el Usuario
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            `
+        }
+    })
+    .catch(error => {
+        console.error("Error al enviar los datos:", error);
+    })
+    .finally(() =>{
+        obetnerTabla();
+    })
 }
+
+function mostrarOverlay() {
+    var overlay = document.getElementById("loading-overlay");
+    var spinner = document.getElementById("spinner");
+    overlay.style.position = "fixed";
+    spinner.style.display = "block";
+    
+    // Ocultar el overlay después de 3 segundos
+    setTimeout(function() {
+      overlay.style.position = "none";
+      spinner.style.display = "none";
+    }, 2000); // 3000 milisegundos = 3 segundos
+  }
+  
 
