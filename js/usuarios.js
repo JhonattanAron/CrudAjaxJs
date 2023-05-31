@@ -57,6 +57,7 @@ function datosModalEditar(id, data) {
 
 function enviarDatos(e){
     e.preventDefault();
+    mostrarOverlay();
     let formulario = document.getElementById("modalFormUsuarios");
     var datos = new FormData(formulario);
     
