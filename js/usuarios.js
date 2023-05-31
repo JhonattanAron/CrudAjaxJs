@@ -98,12 +98,16 @@ function mostrarOverlay() {
     var spinner = document.getElementById("spinner");
     overlay.style.position = "fixed";
     spinner.style.display = "block";
+    overlay.style.width = "100%";
+      overlay.style.height = "100%";
     
     // Ocultar el overlay después de 3 segundos
     setTimeout(function() {
       overlay.style.position = "none";
+      overlay.style.width = "0px";
+      overlay.style.height = "0px";
       spinner.style.display = "none";
-    }, 2000); // 3000 milisegundos = 3 segundos
+    }, 500); // 3000 milisegundos = 3 segundos
   }
   
 
