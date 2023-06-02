@@ -21,7 +21,7 @@
   <h1>Usuarios</h1>
   <div class="card">
     <div class="card-body">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formUsuarios"><img src="../svg/plus-square-fill.svg" alt="add"> - Agregar</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formUsuarios" id="btnAgregar" ><img src="../svg/plus-square-fill.svg" alt="add"> - Agregar</button>
       <div id="alert" class="mt-2 mb-2">
         
       </div>
@@ -42,7 +42,7 @@
           </div>
           <div class="modal-body">
             <label class="form-control-plaintext" for="usuario">Id</label>
-            <input name="modalId" class="form-control" type="number" id="modalId">
+            <input name="modalId" class="form-control" type="number" id="modalId" placeholder="none">
             <label class="form-control-plaintext" for="modalNombre">Nombre</label>
             <input name="modalNombre" class="form-control" type="text" id="modalNombre">
             <label class="form-control-plaintext" for="modalUsuario">Usuario</label>
